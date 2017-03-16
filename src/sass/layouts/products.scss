@@ -1,0 +1,173 @@
+#list-product {
+	display: table;
+	width: 100%;
+	position: relative;
+	margin: 2em 0;
+
+  h2 {
+    font-size: 2em;
+  }
+
+	.block-product {
+		width: 32%;
+		float: left;
+		position: relative;
+		margin-left: 2%;
+		overflow: hidden;
+		height: 35vw;
+		margin-bottom: 1.5em;
+
+		.image {
+			width: 100%;
+			height: 30vw;
+			position: relative;
+
+			img {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				height: 100%;
+				width: auto;
+			}
+		}
+
+		.desc {
+			position: absolute;
+			top: 30vw;
+			left: 0;
+			transition: all 0.5s;
+
+			.name {
+				width: 100%;
+				height: 5vw;
+				position: relative;
+				background: $primary;
+				color: $white;
+        overflow: hidden;
+
+				h3 {
+					position: absolute;
+					top: 50%;
+					left: 5%;
+					transform: translateY(-50%);
+				}
+			}
+
+			.charact {
+				background: $secondary;
+				height: 20vw;
+				padding: 5%;
+				color: $white;
+        overflow: hidden;
+			}
+		}
+	}
+
+	.block-product:hover .desc {
+		top: 10vw;
+	}
+
+	.block-product:nth-of-type(3n+1) {
+		margin-left: 0;
+	}
+}
+
+@media screen and (min-width: 1400px){
+  #list-product {
+  	.block-product {
+  		height: 500px;
+  		.image {
+  			height: 420px;
+  		}
+  		.desc {
+  			top: 420px;
+  			.name {
+  				height: 80px;
+  			}
+  			.charact {
+  				height: 270px;
+  			}
+  		}
+  	}
+  	.block-product:hover .desc {
+  		top: 150px;
+  	}
+  }
+}
+
+@include media($planshet){
+  #list-product {
+    .block-product {
+      width: 49%;
+      height: 51vw;
+      .image {
+        height: 44vw;
+      }
+      .desc {
+        top: 44vw;
+        .name {
+          height: 7vw;
+        }
+        .charact {
+          height: 29vw;
+        }
+      }
+    }
+    .block-product:hover .desc {
+      top: 15vw;
+    }
+    .block-product:nth-of-type(3n+1) {
+      margin-left: 2%;
+    }
+    .block-product:nth-of-type(2n+1) {
+      margin-left: 0%;
+    }
+  }
+}
+
+@include media($mobile){
+  #list-product {
+  	.block-product {
+  		width: 100%;
+      float: none;
+  		margin-left: 0% !important;
+  		height: auto;
+  		.image {
+  			height: auto;
+  			img {
+  				position: relative;
+  				left: 0%;
+  				top: 0%;
+  				transform: none;
+  				height: auto;
+  				width: 100%;
+          display: block;
+  			}
+  		}
+  		.desc {
+  			position: relative;
+  			top: 0;
+  			left: 0;
+  			transition: all 0.5s;
+  			.name {
+  				height: auto;
+  				h3 {
+  					position: relative;
+  					top: 0%;
+  					left: 0%;
+  					transform: none;
+            margin: 0.8em;
+  				}
+  			}
+  			.charact {
+  				height: auto;
+  				padding: 0.8em;
+  			}
+  		}
+  	}
+  	.block-product:hover .desc {
+  		top: 0;
+  	}
+  }
+}
